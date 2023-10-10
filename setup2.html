@@ -1,0 +1,116 @@
+<html>
+ <head>
+      <title>SETUP</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+       .square{
+           position: absolute;
+          top: 10%;
+          left:15%;
+          height:600px;
+          width: 700px;
+          background-color: #000;
+         } 
+         .square1{
+          position: absolute;
+          top: 9.6%;
+          left:14.8%;
+          height:605px;
+          width: 707px;
+          background-image: linear-gradient(#61C3DB,#52156A,#B50EB8);
+         }
+        .form{
+         position: absolute;
+         top: 2%;
+         left: 10%;
+         font-size:30;
+          color:#21DAD4 ;
+         }
+         .inp
+         {
+          position: absolute;
+          height: 50px;
+          width:100px;
+          border-radius: 10px;
+          left: 510px;
+          top: 515px;
+          background-color: #000;
+          border-color: #21DAD4 ; 
+          color: #21DAD4 ;
+          }
+.image {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 1px solid;
+  animation-name: hello;
+  animation-duration: 3s;
+  top: 17%;
+  left: 61%;
+} 
+        
+.en{
+background-color: #000;
+color: #21DAD4 ;
+ border-color: #21DAD4 ; 
+border-radius: 10px;
+}
+
+
+   
+      </style>
+</head>
+<body style="background-image: linear-gradient(#000,#190239 ,#000);" >
+<img src = "C:\Users\vbts0\OneDrive\Pictures\Screenshots\Screenshot 2023-09-08 224258.png" class = "image">
+<div class = "square1"></div><div class="square">
+<div class="form">
+<form action ="C:\Users\vbts0\OneDrive\Documents\Frontend\setup2.html" method = "post">
+<label for="sources"><h4><li>What are your monthly fixed expenses?</li></h4></label>
+<input type="checkbox" id="fixed1" name="fixed1" >
+<label for="source1">Travel</label>&nbsp;&nbsp;
+<input type ="number" id = "travel" placeholder = "Enter amount" class = "en" disabled ><br>
+<input type="checkbox" id="fixed2" name="fixes2" value="pocketmoney">
+<label for="source2">Rent</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type ="number" id = "rent" placeholder = "Enter amount" class = "en" disabled ><br>
+<input type="checkbox" id="fixed3" name="fixed3" value="others">
+<label for="source3">Others</label>&nbsp;&nbsp;
+<input type ="number" id = "others" placeholder = "Enter amount" class = "en"  disabled ><br>
+</div>
+</form>
+<script>
+var checkbox = document.getElementById("fixed1");
+var textbox = document.getElementById("travel");
+checkbox.addEventListener("change", function() {
+            if (fixed1.checked) {
+                travel.disabled = false;
+               
+            } else {
+                travel.disabled = true;
+             
+
+            }
+        });
+var checkbox = document.getElementById("fixed2");
+var textbox = document.getElementById("rent");
+checkbox.addEventListener("change", function() {
+            if (fixed2.checked) {
+                rent.disabled = false;
+               
+            } else {
+                rent.disabled = true;
+
+            }
+        });
+var checkbox = document.getElementById("fixed3");
+var textbox = document.getElementById("others");
+checkbox.addEventListener("change", function() {
+            if (fixed3.checked) {
+                others.disabled = false;
+               
+            } else {
+                others.disabled = true;
+            }
+        });
+</script>
+</body>
+</html>
