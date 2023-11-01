@@ -1,0 +1,224 @@
+<html>
+<head>
+    <title>Fixed Expenses</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .hidden {
+            display: none;
+        }
+.square{
+           position: absolute;
+          top: 10%;
+          left:15%;
+          height:600px;
+          width: 700px;
+          background-color: #000;
+         } 
+         .square1{
+          position: absolute;
+          top: 9.6%;
+          left:14.8%;
+          height:605px;
+          width: 707px;
+          background-image: linear-gradient(#61C3DB,#52156A,#B50EB8);
+         }
+        .form{
+         position: absolute;
+         top: 10%;
+         left: 18%;
+         font-size:30;
+          color:#21DAD4 ;
+         }
+         .inp
+         {
+          position: absolute;
+          height: 50px;
+          width:100px;
+          border-radius: 10px;
+          left: 510px;
+          top: 515px;
+          background-color: #000;
+          border-color: #21DAD4 ; 
+          color: #21DAD4 ;
+          }
+.image {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 1px solid;
+  animation-name: hello;
+  animation-duration: 3s;
+  top: 17%;
+  left: 61%;
+} 
+ .font{
+            position: absolute;
+            width:100px;
+            left: 490px;
+            font-size: 20px;
+            color:#21DAD4 ;
+            background-color: #000;
+            border-color:#21DAD4 ;
+            border-radius: 10px;
+          }
+.en{
+background-color: #000;
+color: #21DAD4 ;
+ border-color: #21DAD4 ; 
+border-radius: 10px;
+}
+.col{
+color: #21DAD4 ;
+}
+.zen{
+  color: #DB7AF5;
+font-size: 30px;
+} 
+.logo{
+ position: absolute;
+ width: 50px;
+ height: 50px;
+ top:0px;
+ left: 150px; 
+}
+@media screen and (max-width: 700px){
+ 
+ .square{
+          position: absolute;
+          top: 10%;
+          left: 6%;
+          height:300px;
+          width: 320px;
+}
+ .square1{
+          position: absolute;
+          top: 9.6%;
+          left: 5%;
+          height:305px;
+          width: 325px;
+         }
+.image {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 1px solid;
+  animation-name: hello;
+  animation-duration: 3s;
+  top: 50%;
+  left: 7%;
+}
+.form{
+         position: absolute;
+         top: 9%;
+         left: 9%;
+          font-size: 15px;
+          color:#21DAD4 ;
+         }
+ .font{
+            position: absolute;
+            width:50px;
+            left: 250px;
+            font-size: 10px;
+            color:#21DAD4 ;
+           
+          }
+
+
+
+}
+</style>
+</head>
+<body style="background-image: linear-gradient(#000,#190239 ,#000);" >
+<img src = "C:\Users\vbts0\OneDrive\Pictures\Screenshots\Screenshot 2023-09-08 224258.png" class = "image">
+<div class = "zen"><p>ZenMonies</p></div>
+</div><img src = "C:\Users\vbts0\OneDrive\Pictures\c1283bf6-22cc-42be-ac15-ed6662ad3c49.jpg"class = "logo">
+<div class = "square1"></div><div class="square"></div>
+<div class="form">
+<label for="sources"><h4><li>What are your monthly fixed expenses?</li></h4></label>
+    <label>
+        <input type="checkbox" id="travelCheckbox"> Travel
+    </label>
+    <div id="travelExpense" class="hidden">
+        <input type="text" placeholder="Enter travel expenses" class = "en">
+    </div>
+       <br>
+    <label>
+        <input type="checkbox" id="rentCheckbox"> Rent
+    </label>
+    <div id="rentExpense" class="hidden">
+        <input type="text" placeholder="Enter rent expenses" class = "en">
+    </div>
+     <br>
+    <label>
+        <input type="checkbox" id="othersCheckbox"> Others
+    </label>
+    <div id="othersExpense" class="hidden">
+        <input type="text" placeholder="Enter other expenses" class = "en">
+    </div>
+     <br><br>
+    <button onclick="calculateTotal()" class = "en" >Calculate Total</button>
+    <p id="totalExpense"></p>
+    <button id = "submit"type = "submit" class = "font"><a href = "C:\Users\vbts0\OneDrive\Documents\Frontend\goal_setup.html" class = "col">Next</a></button>
+   </div>
+
+    <script>
+        function calculateTotal() {
+            var travelExpense = 0;
+            var rentExpense = 0;
+            var othersExpense = 0;
+
+            // Get the checkbox state and corresponding expense for Travel
+            var travelCheckbox = document.getElementById("travelCheckbox");
+            if (travelCheckbox.checked) {
+                var travelInput = document.querySelector("#travelExpense input");
+                travelExpense = parseFloat(travelInput.value) || 0;
+            }
+
+            // Get the checkbox state and corresponding expense for Rent
+            var rentCheckbox = document.getElementById("rentCheckbox");
+            if (rentCheckbox.checked) {
+                var rentInput = document.querySelector("#rentExpense input");
+                rentExpense = parseFloat(rentInput.value) || 0;
+            }
+
+            // Get the checkbox state and corresponding expense for Others
+            var othersCheckbox = document.getElementById("othersCheckbox");
+            if (othersCheckbox.checked) {
+                var othersInput = document.querySelector("#othersExpense input");
+                othersExpense = parseFloat(othersInput.value) || 0;
+            }
+
+            // Calculate the total expenses
+            var total = travelExpense + rentExpense + othersExpense;
+
+            // Display the total expense
+            var totalExpenseElement = document.getElementById("totalExpense");
+            totalExpenseElement.textContent = "Total Expense: " + total;
+        }
+
+        // Add event listeners to show/hide the textboxes
+        document.getElementById("travelCheckbox").addEventListener("change", function () {
+            toggleExpenseTextbox("travelExpense");
+        });
+
+        document.getElementById("rentCheckbox").addEventListener("change", function () {
+            toggleExpenseTextbox("rentExpense");
+        });
+
+        document.getElementById("othersCheckbox").addEventListener("change", function () {
+            toggleExpenseTextbox("othersExpense");
+        });
+
+        function toggleExpenseTextbox(expenseId) {
+            var checkbox = document.getElementById(expenseId.replace("Expense", "Checkbox"));
+            var expenseDiv = document.getElementById(expenseId);
+
+            if (checkbox.checked) {
+                expenseDiv.style.display = "block";
+            } else {
+                expenseDiv.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
